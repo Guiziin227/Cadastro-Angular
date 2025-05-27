@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {Cliente} from './cliente';
+import {ClienteService} from '../cliente.service';
 
 
 @Component({
@@ -27,7 +28,10 @@ export class CadastroComponent {
 
   cliente: Cliente = Cliente.newCliente();
 
-  cadastrarCliente() {
-    console.log(this.cliente);
+  constructor(private clienteService: ClienteService) {
+  }
+
+  singUpCliente() {
+    this.clienteService.singUpCliente(this.cliente);
   }
 }
