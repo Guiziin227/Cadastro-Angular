@@ -8,6 +8,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButton} from '@angular/material/button';
 import {ClienteService} from '../cliente.service';
 import {Cliente} from '../cadastro/cliente';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-consulta',
@@ -19,6 +20,7 @@ import {Cliente} from '../cadastro/cliente';
     FormsModule,// Importing FormsModule for template-driven forms
     MatTableModule,
     MatButton,
+    CommonModule
 // Importing MatTableModule for displaying data in a table
   ],
   templateUrl: './consulta.component.html',
@@ -27,6 +29,7 @@ import {Cliente} from '../cadastro/cliente';
 export class ConsultaComponent implements OnInit {
 
   listaClientes: Cliente[] = [];
+  colunas: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email'];
 
   constructor(private service: ClienteService) {
   }
