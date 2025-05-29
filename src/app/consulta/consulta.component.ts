@@ -5,7 +5,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
-import {MatButton} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
 import {ClienteService} from '../cliente.service';
 import {Cliente} from '../cadastro/cliente';
 import {CommonModule} from '@angular/common';
@@ -19,7 +19,7 @@ import {CommonModule} from '@angular/common';
     MatIconModule, // Importing MatIconModule for icons
     FormsModule,// Importing FormsModule for template-driven forms
     MatTableModule,
-    MatButton,
+    MatButtonModule,
     CommonModule
 // Importing MatTableModule for displaying data in a table
   ],
@@ -28,8 +28,9 @@ import {CommonModule} from '@angular/common';
 })
 export class ConsultaComponent implements OnInit {
 
+  //List<Cliente> listaClientes = new Array<Cliente>();
   listaClientes: Cliente[] = [];
-  colunas: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email'];
+  colunas: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email'];//especificando as colunas que serao exibidas na tabela
 
   constructor(private service: ClienteService) {
   }
