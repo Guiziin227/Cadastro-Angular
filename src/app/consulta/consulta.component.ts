@@ -1,8 +1,24 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MatInputModule} from '@angular/material/input'
+import {MatCardModule} from '@angular/material/card';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule} from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-consulta',
-  imports: [],
+  imports: [
+    MatInputModule, // Importing MatInputModule for input fields
+    MatCardModule, // Importing MatCardModule for card layout
+    FlexLayoutModule, // Importing FlexLayoutModule for responsive design
+    MatIconModule, // Importing MatIconModule for icons
+    FormsModule,// Importing FormsModule for template-driven forms
+    MatTableModule,
+    MatButton,
+// Importing MatTableModule for displaying data in a table
+  ],
   templateUrl: './consulta.component.html',
   styleUrl: './consulta.component.scss'
 })
