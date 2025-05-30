@@ -11,6 +11,8 @@ import {Cliente} from './cliente';
 import {ClienteService} from '../cliente.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
+import {BrasilapiService} from '../brasilapi.service';
+import {Estado, Municipio} from '../brasil.models';
 
 
 @Component({
@@ -34,11 +36,14 @@ export class CadastroComponent implements OnInit {
   cliente: Cliente = Cliente.newCliente();
   actualization: boolean = false;
   snackBar: MatSnackBar = inject(MatSnackBar);
+  estados: Estado[] = [];
+  municipios: Municipio[] = [];
 
   constructor(
     private clienteService: ClienteService,
     private route: ActivatedRoute,
     private router: Router,
+    private brasilApiService: BrasilapiService
   ) {
   }
 
@@ -54,6 +59,8 @@ export class CadastroComponent implements OnInit {
           }
         }
       });
+
+    this.loadUfs();
   }
 
   singUpCliente() {
@@ -71,5 +78,16 @@ export class CadastroComponent implements OnInit {
 
   openSnackBar(message: string) {
     this.snackBar.open(message, "Ok");
+  }
+
+  loadUfs() {
+    //observable        subscriber
+    console.log('Carregando estados...');
+    this.brasilApiService.listUfs().subscribe({
+      //se der certo
+      next: listaEstados => this.estados = listaEstados,
+      //se der erro
+      error: err => console.error('Erro ao carregar estados:', err)
+    })
   }
 }
