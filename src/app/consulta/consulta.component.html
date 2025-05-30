@@ -72,6 +72,22 @@
                 </mat-icon>
                 Editar
               </button>
+
+              @if (!cliente.deleting){
+                <button mat-button (click)="prepararDeletar(cliente)" class="mt-5">
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                  Deletar
+                </button>
+              } @else {
+                <button mat-button (click)="delete(cliente)" class="mt-5">
+                  <mat-icon>
+                    question_mark
+                  </mat-icon>
+                  Confirma
+                </button>
+              }
             </td>
           </ng-container>
 
