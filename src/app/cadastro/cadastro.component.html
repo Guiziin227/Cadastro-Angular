@@ -10,7 +10,7 @@
           <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
             <div fxLayout="column" fxFlex="800px">
               <mat-form-field class="full-width">
-                <mat-label>Nome: </mat-label>
+                <mat-label>Nome:</mat-label>
                 <input type="text"
                        name="nome"
                        placeholder="Fulano da Silva"
@@ -25,7 +25,7 @@
           <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
             <div fxLayout="column" fxFlex="800px">
               <mat-form-field class="full-width">
-                <mat-label>Email: </mat-label>
+                <mat-label>Email:</mat-label>
                 <input type="text"
                        name="email"
                        [(ngModel)]="cliente.email"
@@ -42,7 +42,7 @@
           <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
             <div fxLayout="column" fxFlex="400px">
               <mat-form-field class="full-width">
-                <mat-label>CPF: </mat-label>
+                <mat-label>CPF:</mat-label>
                 <input type="text"
                        required
                        name="cpf"
@@ -56,7 +56,7 @@
           <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
             <div fxLayout="column" fxFlex="400px">
               <mat-form-field class="full-width">
-                <mat-label>Data Nascimento: </mat-label>
+                <mat-label>Data Nascimento:</mat-label>
                 <input type="text"
                        name="dataNascimento"
                        [(ngModel)]="cliente.dataNascimento"
@@ -70,7 +70,7 @@
         </mat-card-content>
 
         <mat-card-actions class="ml-10" fxLayoutGap="10px">
-          <button mat-flat-button color="primary" type="submit">
+          <button mat-flat-button color="primary" type="submit" [disabled]="clienteForm.invalid">
             <mat-icon>save</mat-icon>
             Salvar
           </button>
