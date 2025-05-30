@@ -13,7 +13,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 import {BrasilapiService} from '../brasilapi.service';
 import {Estado, Municipio} from '../brasil.models';
-import {MatSelectModule} from '@angular/material/select';
+import {MatSelectChange, MatSelectModule} from '@angular/material/select';
 import {NgForOf} from '@angular/common';
 
 
@@ -93,5 +93,16 @@ export class CadastroComponent implements OnInit {
       //se der erro
       error: err => console.error('Erro ao carregar estados:', err)
     })
+  }
+
+  loadCities(event: MatSelectChange) {
+    const ufSelect = event.value;
+    this.brasilApiService.listCities(ufSelect).subscribe({
+      next: listaMunicipios => {
+        this.municipios = listaMunicipios;
+      },
+      error: err => console.error('Erro ao carregar municípios:', err)
+    })
+
   }
 }
