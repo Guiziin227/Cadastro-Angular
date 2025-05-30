@@ -32,7 +32,7 @@ export class ConsultaComponent implements OnInit {
 
   //List<Cliente> listaClientes = new Array<Cliente>();
   listaClientes: Cliente[] = [];
-  colunas: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email', "action"];//especificando as colunas que serao exibidas na tabela
+  colunas: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email', "uf", "municipio", "action"];//especificando as colunas que serao exibidas na tabela
   searchName: string = "";
   snackBar: MatSnackBar = inject(MatSnackBar);
 
@@ -48,9 +48,9 @@ export class ConsultaComponent implements OnInit {
     this.listaClientes = this.service.getCliente(this.searchName);
   }
 
-  prepararEditar(id:string){
+  prepararEditar(id: string) {
     console.log(id);
-    this.router.navigate([`/cadastro/`], { queryParams: { id: id } });
+    this.router.navigate([`/cadastro/`], {queryParams: {id: id}});
   }
 
   prepararDeletar(cliente: Cliente) {

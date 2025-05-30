@@ -60,11 +60,16 @@ export class CadastroComponent implements OnInit {
           if (clienteExists) {
             this.actualization = true;
             this.cliente = clienteExists;
+            if(this.cliente.uf){
+              const event = { value: this.cliente.uf} as MatSelectChange;
+              this.loadCities(event);
+            }
           }
         }
       });
 
     this.loadUfs();
+
   }
 
   singUpCliente() {
@@ -97,6 +102,7 @@ export class CadastroComponent implements OnInit {
 
   loadCities(event: MatSelectChange) {
     const ufSelect = event.value;
+    console.log('Carregando municípios para o estado:', ufSelect);
     this.brasilApiService.listCities(ufSelect).subscribe({
       next: listaMunicipios => {
         this.municipios = listaMunicipios;
