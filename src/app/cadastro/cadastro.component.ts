@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatCardModule} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {Cliente} from './cliente';
 import {ClienteService} from '../cliente.service';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -24,14 +25,33 @@ import {ClienteService} from '../cliente.service';
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
 })
-export class CadastroComponent {
+export class CadastroComponent implements OnInit {
 
   cliente: Cliente = Cliente.newCliente();
+  atualizando: boolean = false;
 
-  constructor(private clienteService: ClienteService) {
+  constructor(
+    private clienteService: ClienteService,
+    private route: ActivatedRoute,
+  ) {
+  }
+
+  ngOnInit() {
+    this.route.queryParamMap
+      .subscribe(params => {
+        const id = params.get('id');
+        if (id) {
+          let clienteExists = this.clienteService.getClienteById(id);
+          if (clienteExists) {
+            this.atualizando = true;
+            this.cliente = clienteExists;
+          }
+        }
+      });
   }
 
   singUpCliente() {
     this.clienteService.singUpCliente(this.cliente);
+    this.cliente = Cliente.newCliente();
   }
 }
