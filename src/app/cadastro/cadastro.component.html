@@ -47,6 +47,7 @@
                        required
                        name="cpf"
                        [(ngModel)]="cliente.cpf"
+                       mask="000.000.000-00"
                        placeholder="00011122233"
                        matInput/>
               </mat-form-field>
@@ -61,6 +62,7 @@
                        name="dataNascimento"
                        [(ngModel)]="cliente.dataNascimento"
                        placeholder="12/04/2006"
+                       mask="00/00/0000"
                        matInput
                        required
                 />

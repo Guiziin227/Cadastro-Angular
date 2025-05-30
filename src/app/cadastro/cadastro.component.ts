@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {Cliente} from './cliente';
 import {ClienteService} from '../cliente.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 
 
 @Component({
@@ -20,8 +21,10 @@ import {ActivatedRoute, Router} from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxMaskDirective
   ],
+  providers: [provideNgxMask()],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
 })
@@ -55,7 +58,7 @@ export class CadastroComponent implements OnInit {
     if (!this.actualization) {
       this.clienteService.singUpCliente(this.cliente);
       this.cliente = Cliente.newCliente();
-    } else{
+    } else {
       this.clienteService.updateCliente(this.cliente);
       this.router.navigate(['/consulta']);
     }
