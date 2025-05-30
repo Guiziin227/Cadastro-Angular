@@ -13,6 +13,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 import {BrasilapiService} from '../brasilapi.service';
 import {Estado, Municipio} from '../brasil.models';
+import {MatSelectModule} from '@angular/material/select';
+import {NgForOf} from '@angular/common';
 
 
 @Component({
@@ -25,7 +27,9 @@ import {Estado, Municipio} from '../brasil.models';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    NgxMaskDirective
+    NgxMaskDirective,
+    MatSelectModule,
+    NgForOf
   ],
   providers: [provideNgxMask()],
   templateUrl: './cadastro.component.html',
