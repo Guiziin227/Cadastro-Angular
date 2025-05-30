@@ -6,7 +6,10 @@ export class Cliente {
   email?: string;
   cpf?: string;
   dataNascimento?: string;
+  uf?: string;
+  municipio?: string;
   deleting: boolean = false
+
 
   static newCliente() {
     const cliente = new Cliente();
