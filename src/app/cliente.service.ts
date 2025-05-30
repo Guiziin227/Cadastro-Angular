@@ -24,7 +24,7 @@ export class ClienteService {
       return this.getStorageClientes();
     }
 
-    return  clients.filter(cliente => cliente.nome?.toLowerCase().indexOf(nome) !== -1);
+    return  clients.filter(cliente => cliente.nome?.toLowerCase().indexOf(nome.toLowerCase()) !== -1);
 
   }
 
