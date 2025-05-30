@@ -28,7 +28,7 @@ import {ActivatedRoute} from '@angular/router';
 export class CadastroComponent implements OnInit {
 
   cliente: Cliente = Cliente.newCliente();
-  atualizando: boolean = false;
+  actualization: boolean = false;
 
   constructor(
     private clienteService: ClienteService,
@@ -43,7 +43,7 @@ export class CadastroComponent implements OnInit {
         if (id) {
           let clienteExists = this.clienteService.getClienteById(id);
           if (clienteExists) {
-            this.atualizando = true;
+            this.actualization = true;
             this.cliente = clienteExists;
           }
         }
