@@ -1,11 +1,12 @@
 import {v4 as uuid} from 'uuid';
 
 export class Cliente {
-  id?: String;
-  nome?: String;
-  email?: String;
-  cpf?: String;
-  dataNascimento?: String;
+  id?: string;
+  nome?: string;
+  email?: string;
+  cpf?: string;
+  dataNascimento?: string;
+  deleting: boolean = false
 
   static newCliente() {
     const cliente = new Cliente();
