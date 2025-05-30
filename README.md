@@ -1,59 +1,155 @@
-# CadastroAngular
+# 📝 Sistema de Cadastro - Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+> **Projeto de Aprendizado** - Sistema simples de cadastro de clientes desenvolvido para praticar conceitos fundamentais do Angular.
 
-## Development server
+## 🎯 Objetivo do Projeto
 
-To start a local development server, run:
+- **Angular Framework** (versão 19.x)
+- **Template-driven Forms**
+- **Integração com APIs** (BrasilAPI)
+- **Angular Material**
+- **Validações de formulário**
+- **Consumo de serviços HTTP**
+
+## ✨ Funcionalidades
+
+### 📋 Cadastro de Clientes
+- Formulário completo de cadastro
+- Campos: Nome, Email, CPF, Data de Nascimento
+- Seleção de Estado e Município
+- Validações de campos obrigatórios
+- Máscaras para CPF e data
+
+### 🌎 Integração com BrasilAPI
+- **Estados**: Carregamento automático via API
+- **Municípios**: Listagem dinâmica baseada no estado selecionado
+- **Atualização em tempo real** quando troca de estado
+
+### 🔧 Funcionalidades Técnicas
+- **CRUD básico** (Create, Read, Update)
+- **Armazenamento local** (sem banco de dados)
+- **Navegação entre telas**
+- **Feedback visual** com snackbars
+- **Formulários reativos**
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Angular 19.2.12**
+- **Angular Material** (UI Components)
+- **Angular Flex Layout**
+- **ngx-mask** (máscaras de input)
+- **HttpClient** (requisições HTTP)
+- **TypeScript**
+- **SCSS**
+
+## 🏗️ Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── cadastro/          # Formulário de cadastro
+│   │   └── consulta/          # Lista de clientes
+│   ├── models/
+│   │   ├── cliente.ts         # Modelo do cliente
+│   │   └── brasil.models.ts   # Modelos da BrasilAPI
+│   ├── services/
+│   │   ├── cliente.service.ts # Serviço de clientes
+│   │   └── brasilapi.service.ts # Integração com BrasilAPI
+│   └── app.component.ts
+└── assets/
+```
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+- **Node.js** 18+ 
+- **npm** ou **yarn**
+- **Angular CLI** 19+
+
+### Instalação
 
 ```bash
+# Clone o repositório
+git clone https://github.com/Guiziin227/Cadastro-Angular.git
+
+# Entre no diretório
+cd Cadastro-Angular
+
+# Instale as dependências
+npm install
+
+# Execute o projeto
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Acessando a aplicação
+Abra o navegador em: http://localhost:4200
 
-## Code scaffolding
+## 📱 Telas da Aplicação
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 1. **Cadastro de Cliente**
+- Formulário com todos os campos
+- Validações em tempo real
+- Seleção dinâmica de estado/município
+- Botões de salvar e limpar
 
-```bash
-ng generate component component-name
-```
+### 2. **Consulta de Clientes**
+- Lista de clientes cadastrados
+- Opção de editar cliente existente
+- Navegação de volta para o cadastro
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🌐 APIs Utilizadas
 
-```bash
-ng generate --help
-```
+### BrasilAPI
+- **Estados**: `https://brasilapi.com.br/api/ibge/uf/v1`
+- **Municípios**: `https://brasilapi.com.br/api/ibge/municipios/v1/{UF}`
 
-## Building
+> 💡 **Nota**: Não é necessário chave de API, é gratuita e aberta.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🧪 Scripts Disponíveis
 
 ```bash
-ng test
+# Desenvolvimento
+ng serve                 # Inicia servidor dev na porta 4200
+
+# Build
+ng build                 # Build para produção
+ng build --prod          # Build otimizado
+
+# Testes
+ng test                  # Testes unitários
+ng e2e                   # Testes end-to-end
+
+# Geração de componentes
+ng generate component nome-componente
+ng generate service nome-servico
 ```
 
-## Running end-to-end tests
+## 📖 Conceitos Aprendidos
 
-For end-to-end (e2e) testing, run:
+### Angular Fundamentals
+- ✅ **Components** e **Templates**
+- ✅ **Data Binding** (two-way binding)
+- ✅ **Services** e **Dependency Injection**
+- ✅ **Routing** e **Navigation**
+- ✅ **HTTP Client** e **Observables**
 
-```bash
-ng e2e
-```
+### Forms
+- ✅ **Template-driven Forms**
+- ✅ **Validações** (required, pattern)
+- ✅ **ngModel** e **form controls**
+- ✅ **Máscaras de input**
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Angular Material
+- ✅ **mat-form-field** e **mat-input**
+- ✅ **mat-select** e **mat-option**
+- ✅ **mat-card** e **mat-button**
+- ✅ **mat-snackbar** para feedback
 
-## Additional Resources
+### Conceitos Estudados
+- Template-driven vs Reactive Forms
+- Component Lifecycle
+- Services e HTTP
+- Angular Material Design
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
