@@ -105,7 +105,6 @@ Abra o navegador em: http://localhost:4200
 - **Estados**: `https://brasilapi.com.br/api/ibge/uf/v1`
 - **Municípios**: `https://brasilapi.com.br/api/ibge/municipios/v1/{UF}`
 
-> 💡 **Nota**: Não é necessário chave de API, é gratuita e aberta.
 
 ## 🧪 Scripts Disponíveis
 
